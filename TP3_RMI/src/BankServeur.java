@@ -1,10 +1,9 @@
-package Ex1;
-
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 import java.util.List;
 
-public class CalculeServeure {
+// Point d'entrée du serveur : déploie et rend le service bancaire accessible
+public class BankServeur {
     public static void main(String[] args) {
         try {
             // Démarre l'annuaire RMI (registre) sur le port standard 1099
@@ -15,8 +14,8 @@ public class CalculeServeure {
 
             // Peuple la banque en mémoire avec des données initiales via l'interface
             b.bulkCompte(List.of(
-                    new Compte(3000, "Ahmed"),
-                    new Compte(5000, "Salah")
+                    new Compte(1, 3000, "Ahmed"),
+                    new Compte(2, 5000, "Salah")
             ));
 
             // Associe l'objet distant à l'URL "mabank" dans l'annuaire pour que les clients le trouvent
